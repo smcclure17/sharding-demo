@@ -1,0 +1,32 @@
+org: smcclure17
+app: sharding-demo-dev
+service: sharding-demo-api
+
+frameworkVersion: '3'
+
+custom:
+  wsgi:
+    app: sharding_demo.app.app
+
+provider:
+  name: aws
+  runtime: python3.9
+
+functions:
+  api:
+    handler: wsgi_handler.handler
+    events:
+      - httpApi: '*'
+
+package: 
+  exclude:
+    - .venv/**
+    - terraform.tfstate
+    - terraform.tfstate.backup
+    - .terraform/**
+    - .terraform.lock.hcl
+
+
+plugins:
+  - serverless-wsgi
+  - serverless-python-requirements

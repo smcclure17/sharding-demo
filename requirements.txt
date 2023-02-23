@@ -1,0 +1,7 @@
+psycopg2-binary
+Flask==1.1.4
+Werkzeug==1.0.1
+markupsafe==2.0.1
+Pandas==1.5.3
+sqlalchemy==1.4.46
+-e .

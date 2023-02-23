@@ -1,0 +1,16 @@
+[project]
+name = "sharding-demo"
+description = "A demo of sharding in Python"
+version = "0.1.0"
+authors = [
+    { name = "Sean McClure" }
+]
+
+exclude = [
+    "tests",
+    "node_modules",
+]
+
+[build-system]
+build-backend = "flit_core.buildapi"
+requires = ["flit_core >=3.2,<4"]
