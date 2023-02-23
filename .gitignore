@@ -1,6 +1,8 @@
 
+# Serverless framework config files
 .serverless
 
+# Node dependencies
 node_modules
 
 # IDEs and editors
@@ -13,4 +15,4 @@ __pycache__
 .terraform
 terraform.tfstate
 terraform.tfstate.backup
-terraform.lock.hcl
+.terraform.lock.hcl
