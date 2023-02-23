@@ -1,4 +1,4 @@
-A simple example of database sharding using PostgreSQL and a simple hashing function. API built in Flask and exposed using AWS Lambdas deployed through Serverless.
+An example of database sharding using PostgreSQL and a simple hashing function. API built in Flask and exposed using AWS Lambdas deployed through Serverless.
 
 
 # Setup 
