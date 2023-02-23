@@ -20,7 +20,7 @@ class ShardController:
         engine = sql.create_engine(conn_string)
         connection = engine.connect()
         return ShardController(shard_id, engine, connection)
-    
+
     def all_data_for_region(self, fips: str):
         """Get all data for a given region by fips code"""
         query = f"SELECT * FROM covid_data WHERE fips = '{fips}'"
@@ -32,5 +32,3 @@ class ShardController:
         self.connection.close()
         self.engine.dispose()
         self.closed = True
-    
-    
