@@ -9,6 +9,16 @@ terraform {
   }
 }
 
+variable "IPV4_ADDRESS" {
+  type = string
+}
+
+# Obviously, we'd want different passwords for each instance
+# but for the sake of this demo, just use one pass for everything.
+variable "UNIVERSAL_PASSWORD" {
+  type = string
+}
+
 # Create a new project
 # # haven't tested this b/c I already created the project, but I think this should work.
 # resource "google_project" "sharding-demo-project" {
@@ -29,7 +39,7 @@ resource "google_sql_database_instance" "shard-1" {
       ipv4_enabled = true
       authorized_networks {
         name  = "sean-mac"
-        value = "76.19.98.199"
+        value = var.IPV4_ADDRESS
       }
     }
   }
@@ -46,7 +56,7 @@ resource "google_sql_database_instance" "shard-2" {
       ipv4_enabled = true
       authorized_networks {
         name  = "sean-mac"
-        value = "76.19.98.199"
+        value = var.IPV4_ADDRESS
       }
     }
   }
@@ -63,7 +73,7 @@ resource "google_sql_database_instance" "shard-3" {
       ipv4_enabled = true
       authorized_networks {
         name  = "sean-mac"
-        value = "76.19.98.199"
+        value = var.IPV4_ADDRESS
       }
     }
   }
@@ -73,19 +83,19 @@ resource "google_sql_database_instance" "shard-3" {
 resource "google_sql_user" "shard-1-user" {
   name     = "sean"
   instance = google_sql_database_instance.shard-1.name
-  password = "changeme"
+  password = var.UNIVERSAL_PASSWORD
   project  = "sharding-demo"
 }
 resource "google_sql_user" "shard-2-user" {
   name     = "sean"
   instance = google_sql_database_instance.shard-2.name
-  password = "changeme"
+  password = var.UNIVERSAL_PASSWORD
   project  = "sharding-demo"
 }
 resource "google_sql_user" "shard-3-user" {
   name     = "sean"
   instance = google_sql_database_instance.shard-3.name
-  password = "changeme"
+  password = var.UNIVERSAL_PASSWORD
   project  = "sharding-demo"
 }
 
