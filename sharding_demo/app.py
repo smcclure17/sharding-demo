@@ -22,7 +22,10 @@ database_shards: Dict[int, ShardController] = {
 
 @app.route("/")
 def hello_from_root():
-    return jsonify(message="Successfull!")
+    return jsonify(
+        greeting="Welcome!",
+        message=f"explore covid data for a region at /data/<fips> (e.g. /data/06075 for San Francisco County, CA)",
+    )
 
 
 @app.route("/data/<fips>")
