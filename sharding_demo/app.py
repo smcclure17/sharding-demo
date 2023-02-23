@@ -21,7 +21,7 @@ database_shards: Dict[int, ShardController] = {
 
 
 @app.route("/")
-def hello_from_root():
+def welcome():
     return jsonify(
         greeting="Welcome!",
         message=f"explore covid data for a region at /data/<fips> (e.g. /data/06075 for San Francisco County, CA)",
@@ -29,7 +29,7 @@ def hello_from_root():
 
 
 @app.route("/data/<fips>")
-def test_query(fips: str):
+def get_all_data_for_region(fips: str):
     # TODO: Move this to middleware. Or a decorator?
     shard_bucket = get_shard_bucket_for_fips(fips)
     if shard_bucket not in database_shards.keys():
