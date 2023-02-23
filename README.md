@@ -7,7 +7,7 @@ To run locally:
 ## Run terraform to setup GCP infrastructure:
 Set up the scaffolding using terraform:
 
-```IPV4_ADRESS=foo UNIVERSAL_PASSWORD=bar terraform apply```
+```TF_VAR_IPV4_ADRESS=foo TF_VAR_UNIVERSAL_PASSWORD=bar terraform apply```
 
 where "foo" is your local ip address and "bar" is the password to use for all instances.
 Your local IP address is required to authorize a connection to the PostgreSQL instances. 
