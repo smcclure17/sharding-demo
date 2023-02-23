@@ -2,7 +2,7 @@ A simple example of database sharding using PostgreSQL and a simple hashing func
 
 
 # Setup 
-To run locally this service locally:
+To run locally:
 
 ## Run terraform to setup GCP infrastructure:
 Set up the scaffolding using terraform:
